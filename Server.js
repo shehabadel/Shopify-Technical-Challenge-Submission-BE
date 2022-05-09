@@ -4,7 +4,7 @@ const cors  = require('cors');
 const json = require('body-parser/lib/types/json');
 const urlencoded = require('body-parser/lib/types/urlencoded');
 const createError = require('http-errors');
-const { connect } = require('mongoose');
+const connect = require("./src/config/db").connect;
 
 
 class Server{
@@ -54,7 +54,7 @@ class Server{
 
     start(){
         //Conenct to the database using Mongoose
-        //connect()
+        connect()
         this.app.listen(this.port, ()=>{
             console.log("Shopify Technical Chanllenge Inventories app runs on ",this.port);
         })
