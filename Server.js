@@ -5,7 +5,7 @@ const json = require('body-parser/lib/types/json');
 const urlencoded = require('body-parser/lib/types/urlencoded');
 const createError = require('http-errors');
 const connect = require("./src/config/db").connect;
-
+const inventoriesRouter = require('./src/resources/inventories/inventories.router').inventoriesRouter
 
 class Server{
     /**
@@ -49,7 +49,7 @@ class Server{
     }
 
     routes(){
-        //this.app.use(this.paths.inventories,inventoriesRouter);
+        this.app.use(this.paths.inventories,inventoriesRouter);
     }
 
     start(){

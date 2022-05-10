@@ -23,5 +23,6 @@ const itemSchema = new mongoose.Schema({
         type: String
     }
 })
-
+const Item = mongoose.model('item',itemSchema)
+module.exports.Item=Item
 module.exports.itemSchema = itemSchema
