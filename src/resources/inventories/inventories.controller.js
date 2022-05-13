@@ -70,7 +70,7 @@ const deleteInventory = () => async(req,res)=>{
 
 const inventoryCRUD = {
     createInventory: createInventory(),
-    readInvetory: readInventory(),
+    readInventory: readInventory(),
     updateInventory: updateInventory(),
     deleteInventory: deleteInventory(),
     readOneInventory: readOneInventory()

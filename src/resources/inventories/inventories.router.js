@@ -7,7 +7,7 @@ const router = Router()
 router
     .route('/')
     .post(inventoryCRUD.createInventory)
-    .get(inventoryCRUD.readInvetory)
+    .get(inventoryCRUD.readInventory)
 
 
 // /api/v1/inventories/:id
