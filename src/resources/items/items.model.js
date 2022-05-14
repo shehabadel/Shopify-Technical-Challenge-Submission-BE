@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema({
     name:{
-        type: String,
-        unique:true
+        type: String
     },
     dateCreated:{
         type: Date,

@@ -7,7 +7,7 @@ const createError = require('http-errors');
 const connect = require("./src/config/db").connect;
 const inventoriesRouter = require('./src/resources/inventories/inventories.router').inventoriesRouter
 const itemsRouter = require('./src/resources/items/items.router').itemsRouter
-
+const warehousesRouter=require('./src/resources/warehouses/warehouses.router').warehousesRouter
 
 class Server{
     /**
@@ -20,7 +20,8 @@ class Server{
         this.port = process.env.PORT || 8080;
         this.paths={
             inventories:"/api/v1/inventories",
-            itemsRouter:"/api/v1/items"
+            itemsRouter:"/api/v1/items",
+            warehousesRouter:"/api/v1/warehouses"
         };
         this.middlewares();
         this.routes();
@@ -54,6 +55,7 @@ class Server{
     routes(){
         this.app.use(this.paths.inventories,inventoriesRouter);
         this.app.use(this.paths.itemsRouter,itemsRouter);
+        this.app.use(this.paths.warehousesRouter,warehousesRouter)
     }
 
     start(){
