@@ -17,4 +17,8 @@ router
     .delete(inventoryCRUD.deleteInventory)
     .get(inventoryCRUD.readOneInventory)
 
+router.
+    route('/items/:id')
+    .put(inventoryCRUD.addItemToInventory)
+    .delete(inventoryCRUD.removeItemFromInventory)
 module.exports.inventoriesRouter=router
