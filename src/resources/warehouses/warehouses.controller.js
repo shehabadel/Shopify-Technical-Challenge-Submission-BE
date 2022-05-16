@@ -107,15 +107,10 @@ const assignInventory = () => async (req, res) => {
  */
 const unAssignInventory = () => async(req,res)=>{
     try {
-        const inventoryName = req.body.inventory
-        const inventoryDoc = await Inventory.findOne({ name: inventoryName })
-        if (!inventoryDoc) {
-            return res.status(404).json('No Inventory with this ID exists!')
-        }
         const warehouseID = req.params.id
         const doc = await Warehouse.findByIdAndUpdate(
             { _id: warehouseID },
-            { ...req.body, inventory: '' }
+            {$unset:{inventory:""}}
         )
         if (!doc) {
             return res.status(404).end()
