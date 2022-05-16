@@ -103,19 +103,27 @@ const addItemToInventory = () => async(req,res)=>{
         {
             return res.status(404).json(`Can't find item with this name`)
         }
+        console.log(itemDoc)
         //Update the inventory with the the new item document added to its item list
-        const inventoryDoc = await Inventory.findByIdAndUpdate({_id:inventoryID},{items:[...itemDoc]})
-        if(!inventoryDoc){
+        const inventoryDoc = await Inventory.findById({_id:inventoryID})
+        console.log(inventoryDoc)
+        var inventoryList = inventoryDoc.items
+        console.log('Updated')
+        inventoryList.push(itemDoc)
+        console.log(inventoryList)
+
+        const updatedInventoryDoc = await Inventory.findByIdAndUpdate({_id:inventoryID},{$push:{items:itemDoc}})
+        if(!updatedInventoryDoc){
             return res.status(404).end()
         }
-        res.status(200).json({data: inventoryDoc})
+        res.status(200).json({data: updatedInventoryDoc})
     } catch (e) {
         console.error(e)
     }
 }
 /**
  * 
- * Remove an Item to from Inventory based on
+ * Remove an Item from Inventory based on
  * Inventory (id), Item (name)
  */
 const removeItemFromInventory = () => async(req,res)=>{
@@ -125,18 +133,12 @@ const removeItemFromInventory = () => async(req,res)=>{
         //Retreive the item name from the request body
         const itemName= req.body.name;
 
-        //Fetch the item document from the database based on the request body
-        const itemDoc = await Item.find({name:itemName})
-        if(!itemDoc)
-        {
-            return res.status(404).json(`Can't find item with this name`)
-        }
         //Update the inventory with the the new item document added to its item list
         const inventoryDoc = await Inventory.findById({_id:inventoryID})
         if(!inventoryDoc){
             return res.status(404).end()
         }
-        const inventoryItemsList = inventoryDoc.items
+        var inventoryItemsList = inventoryDoc.items
         //Retreive the index of the item we want to delete from the inventory items list
         let i = inventoryItemsList.indexOf(itemName)
         //Remove the item from the item list

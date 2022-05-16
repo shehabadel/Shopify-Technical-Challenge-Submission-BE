@@ -3,7 +3,8 @@ const itemSchema = require('../items/items.model').itemSchema;
 
 const inventorySchema = new mongoose.Schema({
     name:{
-        type: String
+        type: String,
+        unique: true
     },
     dateCreated:{
         type: Date

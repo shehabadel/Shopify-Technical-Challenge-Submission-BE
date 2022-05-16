@@ -17,6 +17,11 @@ router
     .delete(inventoryCRUD.deleteInventory)
     .get(inventoryCRUD.readOneInventory)
 
+//Endpoints for adding and removing items from
+//an Inventory, ':id' parameter stands for
+//Inventory's id.
+
+// /api/v1/inventories/items
 router.
     route('/items/:id')
     .put(inventoryCRUD.addItemToInventory)

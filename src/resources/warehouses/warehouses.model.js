@@ -7,8 +7,9 @@ const warehouseSchema = new mongoose.Schema({
     location:{
         type:String
     },
-    inventories:{
-        type:[inventorySchema]
+    inventory:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "inventory"
     },
     dateCreated:{
         type:Date,
