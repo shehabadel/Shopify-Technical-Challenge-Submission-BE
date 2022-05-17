@@ -3,7 +3,7 @@ const _connect = require('mongoose').connect;
 
 const connect = () => {
     return _connect(
-        "mongodb://localhost:27017/STCIBE", 
+        process.env.DB_URL, 
         { useNewUrlParser: true },
         err=>{
             if(err) throw err;

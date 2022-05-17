@@ -4,7 +4,7 @@
   "description": "Shopify Technical Challenge Submission Backend Internship Fall 2022",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "http-errors": "^2.0.0",
     "mongoose": "^6.3.3",
