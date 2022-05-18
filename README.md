@@ -40,3 +40,40 @@ Inside `src` directory
         1. `*.router.js` -> creates a router object that routes a route to a specific request handler
         2. `*.model.js` -> contains the entity's mongoose schema
         3. `*.controller.js` -> contains CRUD request handlers, and other request handlers as well. 
+
+
+# API Routes
+
+## Warehouse
+
+### `/api/v1/warehouses/`
+
+1. `GET` -> Fetches all `warehouse`s
+2. `POST` -> Creates a `warehouse`
+
+`/api/v1/warehouses/:id`
+1. `PUT` -> Updates a `warehouse` by `id`
+2. `DELETE` -> Deletes a `warehouse` by `id`
+3. `GET` -> Fetches a **single** `warehouse` by `id`
+
+
+### `/api/v1/warehouses/`
+
+1. `GET` -> Fetches all `warehouse`s
+2. `POST` -> Creates a `warehouse`
+
+`/api/v1/warehouses/inventories/:id`
+
+
+
+
+### `/api/v1/warehouses/`
+
+1. `GET` -> Fetches all `warehouse`s
+2. `POST` -> Creates a `warehouse`
+
+`/api/v1/warehouses/:id`
+1. `PUT` -> Updates a `warehouse` by `id`
+2. `DELETE` -> Deletes a `warehouse` by `id`
+3. `GET` -> Fetches a **single** `warehouse` by `id`
+
