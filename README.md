@@ -46,7 +46,7 @@ Inside `src` directory
 
 ## Warehouse
 
-### `/api/v1/warehouses/`
+`/api/v1/warehouses/`
 
 1. `GET` -> Fetches all `warehouse`s
 2. `POST` -> Creates a `warehouse`
@@ -55,25 +55,37 @@ Inside `src` directory
 1. `PUT` -> Updates a `warehouse` by `id`
 2. `DELETE` -> Deletes a `warehouse` by `id`
 3. `GET` -> Fetches a **single** `warehouse` by `id`
-
-
-### `/api/v1/warehouses/`
-
-1. `GET` -> Fetches all `warehouse`s
-2. `POST` -> Creates a `warehouse`
 
 `/api/v1/warehouses/inventories/:id`
 
+1. `PUT` -> Assigns an `inventory` from `req.body` to a `warehouse` by `id`
+2. `DELETE` -> Un-asigns an `inventory` from `req.body` to a `warehouse` by `id`
 
+## Inventory
 
+`/api/v1/inventories/`
 
-### `/api/v1/warehouses/`
+1. `GET` -> Fetches all `inventory`s
+2. `POST` -> Creates a `inventory`
 
-1. `GET` -> Fetches all `warehouse`s
-2. `POST` -> Creates a `warehouse`
+`/api/v1/inventories/:id`
+1. `PUT` -> Updates a `inventory` by `id`
+2. `DELETE` -> Deletes a `inventory` by `id`
+3. `GET` -> Fetches a **single** `inventory` by `id`
 
-`/api/v1/warehouses/:id`
-1. `PUT` -> Updates a `warehouse` by `id`
-2. `DELETE` -> Deletes a `warehouse` by `id`
-3. `GET` -> Fetches a **single** `warehouse` by `id`
+`/api/v1/inventories/items/:id`
 
+1. `PUT` -> Adds an `item` from `req.body` to an `inventory` by `id`
+2. `DELETE` -> Removes an `item` from `req.body` to a `inventory` by `id`
+
+## Item
+
+`/api/v1/items/`
+
+1. `GET` -> Fetches all `item`s
+2. `POST` -> Creates a `item`
+
+`/api/v1/items/:id`
+1. `PUT` -> Updates a `item` by `id`
+2. `DELETE` -> Deletes a `item` by `id`
+3. `GET` -> Fetches a **single** `item` by `id`
